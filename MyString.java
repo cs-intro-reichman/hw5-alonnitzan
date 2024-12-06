@@ -14,7 +14,7 @@ public class MyString {
         System.out.println(randomStringOfLetters(12));
 
         System.out.println(subsetOf("sap", "space"));
-        System.out.println(subsetOf("spa", "space"));
+        System.out.println(subsetOf("pass", "space"));
         System.out.println(subsetOf("cr", "space"));
 
         System.out.println(remove("cs", "space"));
@@ -55,17 +55,11 @@ public class MyString {
     public static boolean subsetOf(String str1, String str2) {
         
         for (int i = 0; i < str1.length(); i++){
-            boolean isAppear = false;
+            
             char c1 = str1.charAt(i);
-
-            for (int j = 0; j < str2.length(); j++){
-                if (str2.charAt(j) == c1){
-                    isAppear = true;
-                    j = str2.length();
-                }
-            }
-
-            if (!isAppear) return false;
+            int countC1 = countChar(str1, c1);
+            if (countC1 > countChar(str2, c1)) return false;
+            
         }
         return true;
     }

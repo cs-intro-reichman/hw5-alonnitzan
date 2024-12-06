@@ -17,8 +17,10 @@ public class MyString {
         System.out.println(subsetOf("pass", "space"));
         System.out.println(subsetOf("cr", "space"));
 
-        System.out.println(remove("cs", "space"));
-        System.out.println(remove("ae", "space"));
+        System.out.println(remove("committee", "meet"));
+        System.out.println(remove("abc", "abc"));
+        System.out.println(remove("abc", "b"));
+        System.out.println(remove("hello", ""));
 
         System.out.println(insertRandomly('g', "space"));
         System.out.println(insertRandomly('t', "cat"));
@@ -118,20 +120,20 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
 
-       for (int i = 0; i < str1.length(); i ++){
+       for (int i = 0; i < str2.length(); i ++){
             String newStr = "";
-            char toRemove = str1.charAt(i);
+            char toRemove = str2.charAt(i);
             boolean removed = false;
 
             // build a new string without the specific current character in str1
-            for (int j = 0; j < str2.length(); j++){    
-                if (toRemove == str2.charAt(j) &&!removed) removed = true;
-                else newStr += str2.charAt(j);
+            for (int j = 0; j < str1.length(); j++){    
+                if (toRemove == str1.charAt(j) &&!removed) removed = true;
+                else newStr += str1.charAt(j);
             }
 
-            str2 = newStr;
+            str1 = newStr;
        }
-       return str2;
+       return str1;
     }
 
     /**
